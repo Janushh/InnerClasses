@@ -1,0 +1,29 @@
+Podsumowanie
+Kursant musi znać:
+Klasa wewnętrzna charakteryzuje się tym, że jest zdefiniowana wewnątrz innej klasy. Są dwie zalety tego:
+- klasę wewnętrzną można ukryć przed innymi klasami tego samego pakietu;
+- metody klas wewnętrznych mają dostęp do danych w obszarze, w którym są zdefiniowane – wliczając dane, które w innym przypadku byłyby prywatne.
+Klasy wewnętrzne są zjawiskiem znanym kompilatorowi ale nie maszynie wirtualnej javy. Klasy te są konwertowane na zwykłe pliki klas, których nazwy składają się z nazw klasy zewnętrznej i wewnętrznej rozdzielonych symbolem dolara.
+Klasa wewnętrzna w Javie mają dodatkową funkcjonalność w postaci posiadania niejawnej referencji do obiektu klasy zewnętrznej, który ją utworzył. Za pomocą tego wskaźnika obiekt klasy wewnętrznej ma dostęp do stanu obiektu klasy zewnętrznej.
+Metody klas wewnętrznych mają dostęp do własnych pól oraz pól klasy zewnętrznej(pól obiektu klasy zewnętrznej). Działa to dzięki posiadaniu przez obiekt klasy wewnętrznej wspomnianej niejawnej referencji na obiekt klasy zewnętrznej, który go utworzył. Ta referencja jest niewidoczna w definicji klasy wewnętrznej.
+Od strony technicznej: referencja klasy zewnętrznej (otaczającej) jest ustawiana we wszystkich konstruktorach klasy wewnętrznej na etapie kompilacji – kompilator modyfikuje istniejące konstruktory dodając parametr referencji na obiekt tejże klasy zewnętrznej.
+Obiekt klasy zewnętrznej NIE MA DOSTEPU do pól i metod  (niezależnie od modyfikatora )obiektu klasy wewnętrznej (nie posiadając jawnej relacji agregacji czyli np. jak Car niema pola Engine) Dowodzi to to temu, że klasy wewnętrze mają większe możliwości od zwykłych klas bo mają większe prawa dostępu (kompilator dodaje statyczną metodę access$0 do klasy zewnętrznej, w parametrze wskazane jest pole klasy zewnętrznej).
+!!!!!Wszystkie statyczne pola w klasie wewnętrznej muszą być finalne. Gdyby pole nie było stałe to jego wartość mogłaby nie być niepowtarzalna.
+Klasa wewnętrzna nie może zawierać metod statycznych!!!!!
+Statyczna klasa wewnętrzna różni się od zwykłej klasy wewnętrznej tym, że obiekt takiej klasy nie zawiera referencji (this$0) do obiektu klasy zewnętrznej, który go wygenerował.
+Wewnętrznych klas statycznych należy używać wtedy, kiedy klasa wewnętrzna nie wymaga dostępu do obiektu klasy zewnętrznej.
+Statyczne klasy wewnętrzne mogą zawierać statyczne pola i metody.
+Klasy wewnętrzne deklarowane w interfejsach są automatycznie statyczne i publiczne.
+Klasa lokalna jest to klasa zdefiniowana w obrębie jednej metody. W definicjach klas lokalnych nie stosuje się specyfikatorów dostępu (podobnie jak w zmiennych znajdujących się w ciałach metod). Niema do nich dostępu spoza bloku, w którym są zdefiniowane. Zaletą tych klas jest to, że są ukryte przed światem zewnętrznym – nie ma do nich dostępu nawet kod otaczającej klasy.
+Anonimowych klas wewnętrznych używamy wtedy, kiedy chcemy utworzyć tylko jeden obiekt jakiejś klasy, nie musimy nawet nadawać jej wtedy nazwy. Takie klasy nie posiadają nawet konstruktorów.
+
+PRACA DOMOWA
+Mamy wózek sklepowy, który przechowuje produkty (pola producent, nazwa, waga, cena), ale również w wózku sklepowym mamy mały koszyk, który tez przechowuje produkty.
+Za pomocą addProduct(Product p) należy umieszczać
+produkty w wózku sklepowym. Jeżeli waga produktu jest poniżej 0,5kg to mamy umieszczać produkt w małym koszyku, jeśli równe lub powyżej to w dużym wózku (zewnętrznym).
+Mały koszyk ma być klasą wewnętrzną (nie zagnieżdżoną).
+W wózku mamy mieć metody liczące łączną wagę wszystkich produktów i cenę produktów.
+
+zainstalować docker desktop
+zainstalować mysql
+zainstalować postman
